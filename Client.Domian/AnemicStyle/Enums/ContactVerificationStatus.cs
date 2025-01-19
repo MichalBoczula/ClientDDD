@@ -1,4 +1,4 @@
-﻿namespace Client.Domian.Enums
+﻿namespace Client.Domian.AnemicStyle.Enums
 {
     public enum ContactVerificationStatus
     {

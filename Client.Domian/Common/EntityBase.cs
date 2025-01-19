@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Client.Domian.Common
+﻿namespace Client.Domian.Common
 {
-    public record EntityBase
+    public abstract class EntityBase<TId>
     {
-        public Guid Id { get; init; }
+        public TId Id { get; set; }
+
+        //Implemnet in future
+        public List<BaseDomainEvent> Events = new List<BaseDomainEvent>();
     }
 }

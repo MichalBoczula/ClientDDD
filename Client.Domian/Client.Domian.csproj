@@ -8,9 +8,9 @@
 
   <ItemGroup>
     <Folder Include="Events\" />
+    <Folder Include="RichDomainStyle\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
-    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,10 @@
-﻿using Client.Domian.Common;
+﻿using Client.Domian.AnemicStyle.Exceptions;
+using Client.Domian.AnemicStyle.ValueObjects;
+using Client.Domian.Common;
 
-namespace Client.Domian.Entities
+namespace Client.Domian.AnemicStyle.Entities
 {
-    public record Client : EntityBase
+    public class Client : EntityBase<int>, IAggregateRoot
     {
         public string FirstName { get; init; }
         public string LastName { get; init; }
@@ -21,7 +23,6 @@ namespace Client.Domian.Entities
         }
 
         public Client(
-            Guid id,
             string firstName,
             string lastName,
             string pesel,
@@ -30,11 +31,24 @@ namespace Client.Domian.Entities
             IReadOnlyCollection<AddressContact> addressContacts,
             IReadOnlyCollection<EmailContact> emailContacts)
         {
-            Id = id;
+            if (string.IsNullOrWhiteSpace(firstName))
+                throw new DomainException("First name is required.");
+
+            if (string.IsNullOrWhiteSpace(lastName))
+                throw new DomainException("Last name is required.");
+
+            if (string.IsNullOrWhiteSpace(pesel))
+                throw new DomainException("Pesel (national ID) is required.");
+
+            if (birthDate == default)
+                throw new DomainException("Birth date is required.");
+
+
             FirstName = firstName;
             LastName = lastName;
             Pesel = pesel;
             BirthDate = birthDate;
+
             PhoneContacts = phoneContacts ?? Array.Empty<PhoneContact>();
             AddressContacts = addressContacts ?? Array.Empty<AddressContact>();
             EmailContacts = emailContacts ?? Array.Empty<EmailContact>();
