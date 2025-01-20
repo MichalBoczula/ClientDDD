@@ -107,4 +107,3 @@ namespace Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate
     }
 }
 
-}

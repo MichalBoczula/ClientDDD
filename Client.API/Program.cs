@@ -1,3 +1,5 @@
+using Client.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Client.API
 {
@@ -13,6 +15,9 @@ namespace Client.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<ClientDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ClientDatabase")));
 
             var app = builder.Build();
 
