@@ -26,12 +26,6 @@
 
         public int CompareTo(object obj)
         {
-            Type thisType = GetUnproxiedType(this);
-            Type otherType = GetUnproxiedType(obj);
-
-            if (thisType != otherType)
-                return string.Compare(thisType.ToString(), otherType.ToString(), StringComparison.Ordinal);
-
             var other = (ValueObject)obj;
 
             object[] components = GetEqualityComponents().ToArray();
@@ -67,20 +61,6 @@
         public int CompareTo(ValueObject other)
         {
             return CompareTo(other as object);
-        }
-
-        internal static Type GetUnproxiedType(object obj)
-        {
-            const string EFCoreProxyPrefix = "Castle.Proxies.";
-            const string NHibernateProxyPostfix = "Proxy";
-
-            Type type = obj.GetType();
-            string typeString = type.ToString();
-
-            if (typeString.Contains(EFCoreProxyPrefix) || typeString.EndsWith(NHibernateProxyPostfix))
-                return type.BaseType;
-
-            return type;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Client.Domian.Common;
+using Client.Domian.RichDomainStyle.ValueObjects;
 
 namespace Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate
 {
@@ -42,7 +43,7 @@ namespace Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate
         {
             if (phone is null)
                 throw new ArgumentNullException(nameof(phone));
-            
+
             _phoneContacts.Add(phone);
         }
 

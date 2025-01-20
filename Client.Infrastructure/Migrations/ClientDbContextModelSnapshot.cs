@@ -55,7 +55,7 @@ namespace Client.Infrastructure.Migrations
 
             modelBuilder.Entity("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichClient", b =>
                 {
-                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichAddress", "AddressContacts", b1 =>
+                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichClient.AddressContacts#Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichAddress", "AddressContacts", b1 =>
                         {
                             b1.Property<int>("Id")
                                 .ValueGeneratedOnAdd()
@@ -116,7 +116,7 @@ namespace Client.Infrastructure.Migrations
                                 .HasForeignKey("RichClientId");
                         });
 
-                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichEmail", "EmailContacts", b1 =>
+                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichClient.EmailContacts#Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichEmail", "EmailContacts", b1 =>
                         {
                             b1.Property<int>("Id")
                                 .ValueGeneratedOnAdd()
@@ -153,7 +153,7 @@ namespace Client.Infrastructure.Migrations
                                 .HasForeignKey("RichClientId");
                         });
 
-                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichPhone", "PhoneContacts", b1 =>
+                    b.OwnsMany("Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichClient.PhoneContacts#Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate.RichPhone", "PhoneContacts", b1 =>
                         {
                             b1.Property<int>("Id")
                                 .ValueGeneratedOnAdd()

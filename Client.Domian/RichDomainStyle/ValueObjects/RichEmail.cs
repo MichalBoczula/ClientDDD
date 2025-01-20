@@ -1,7 +1,7 @@
 ﻿using Client.Domian.Common;
 using System.Text.RegularExpressions;
 
-namespace Client.Domian.RichDomainStyle.AggregatesModel.ClientAggregate
+namespace Client.Domian.RichDomainStyle.ValueObjects
 {
     public record RichEmail : ValueObject
     {

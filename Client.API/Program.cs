@@ -17,7 +17,9 @@ namespace Client.API
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<ClientDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ClientDatabase")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ClientDatabase"))
+                .EnableSensitiveDataLogging());
+
 
             var app = builder.Build();
 
